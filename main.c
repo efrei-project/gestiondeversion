@@ -10,7 +10,8 @@ void menu() {
     printf("\n==== Programming Quotes ====\n");
     printf("1. Random quote\n");
     printf("2. All quotes\n");
-    printf("3. Exit\n");
+    printf("3. Add quote\n");
+    printf("4. Exit\n");
 }
 
 int main() {

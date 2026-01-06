@@ -62,7 +62,7 @@ void add_quote(const char *filename, QuoteArray *quotes) {
         strcpy(quotes->quotes[quotes->count], new_quote);
         quotes->count++;
     }
-}       quotes->count++;
+}
       
 void display_quotes(const QuoteArray *quotes, int count) {
     if (count >= quotes->count) {
