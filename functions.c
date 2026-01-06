@@ -62,4 +62,16 @@ void add_quote(const char *filename, QuoteArray *quotes) {
         strcpy(quotes->quotes[quotes->count], new_quote);
         quotes->count++;
     }
+}       quotes->count++;
+      
+void display_quotes(const QuoteArray *quotes, int count) {
+    if (count >= quotes->count) {
+        printf("All Quotes:\n");
+        view_quotes(quotes);
+    } else {
+        printf("First %d Quotes:\n", count);
+        for (int i = 0; i < count; i++) {
+            print_quote(quotes->quotes[i]);
+        }
+    }
 }
