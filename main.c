@@ -4,6 +4,7 @@
 #include <string.h>
 #include <time.h>
 #include "functions.h"
+#include <windows.h>
 
 void menu() {
     printf("\n==== Programming Quotes ====\n");
@@ -14,6 +15,9 @@ void menu() {
 }
 
 int main() {
+
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
     srand(time(NULL));
     char choice[20];
     
@@ -41,6 +45,21 @@ int main() {
             break;
         } else {
             printf("Invalid input\n");
+        switch (choice) {
+            case 1:
+                print_quote(random_quote(quotes));
+                break;
+            case 2:
+                view_quotes(quotes);
+                break;
+            case 3:
+                add_quote("quotes.txt", quotes);
+                return 0;
+            case 4:
+                printf("Good bye...\n");
+                free(quotes);
+            default:
+                printf("Invalid choice\n");
         }
         free(quotes);
     }
