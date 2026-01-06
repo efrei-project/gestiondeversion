@@ -7,40 +7,43 @@
 
 void menu() {
     printf("\n==== Programming Quotes ====\n");
-    printf("1. Random quote\n");
-    printf("2. All quotes\n");
-    printf("3. Exit\n");
+    printf("random  : Random quote\n");
+    printf("display : Display quotes\n");
+    printf("add     : Add a new quote\n");
+    printf("exit    : Exit the program\n");
 }
 
 int main() {
     srand(time(NULL));
-    int choice;
+    char choice[20];
     
     while (1) {
-        QuoteArray * quotes = load_quotes("quotes.txt");
+        QuoteArray *quotes = load_quotes("quotes.txt");
         menu();
         
-        printf("Choose an action (1-3): ");
-        scanf("%d", &choice);
-        getchar(); // clear newline from buffer
+        printf(">> ");
+        fgets(choice, sizeof(choice), stdin);
+        choice[strcspn(choice, "\n")] = '\0';
         
-        switch (choice) {
-            case 1:
-                print_quote(random_quote(quotes));
-                break;
-            case 2:
-                view_quotes(quotes);
-                break;
-            case 3:
-                printf("Good bye...\n");
-                free(quotes);
-                return 0;
-            default:
-                printf("Invalid choice\n");
+        if (strcmp(choice, "random") == 0) {
+            print_quote(random_quote(quotes));
+        } else if (strcmp(choice, "display") == 0) {
+            char count_str[10];
+            printf("Enter the number of quotes to display: ");
+            fgets(count_str, sizeof(count_str), stdin);
+            int count = atoi(count_str);
+            display_quotes(quotes, count);
+        } else if (strcmp(choice, "add") == 0) {
+            add_quote("quotes.txt", quotes);
+        } else if (strcmp(choice, "exit") == 0) {
+            printf("Good bye...\n");
+            free(quotes);
+            break;
+        } else {
+            printf("Invalid input\n");
         }
         free(quotes);
     }
     
     return 0;
 }
-
