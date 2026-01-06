@@ -3,10 +3,10 @@
 A C program that generates programming quotes and jokes.
 
 ## Contributors
-- `initiator`: FOO Bar Group CS1
-- `contributor-1`: BAR Foo Group CS1
-- `contributor-2`: WIZZ Bang CS1
-- `contributor-3`: TOTO Titi Group CS1
+- `initiator`: FOO Bar Group CS1 Jules
+- `contributor-1`: BAR Foo Group CS1 jules
+- `contributor-2`: WIZZ Bang CS1 matheo
+- `contributor-3`: TOTO Titi Group CS1 l'autre là
 
 ## Feature Branches
 - `contributor-1`: feature/add-quote
