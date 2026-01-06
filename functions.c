@@ -43,3 +43,15 @@ const char* random_quote(const QuoteArray *quotes) {
     int index = rand() % quotes->count;
     return quotes->quotes[index];
 }
+
+void display_quotes(const QuoteArray *quotes, int count) {
+    if (count >= quotes->count) {
+        printf("All Quotes:\n");
+        view_quotes(quotes);
+    } else {
+        printf("First %d Quotes:\n", count);
+        for (int i = 0; i < count; i++) {
+            print_quote(quotes->quotes[i]);
+        }
+    }
+}

@@ -4,6 +4,7 @@
 #include <string.h>
 #include <time.h>
 #include "functions.h"
+#include <windows.h>
 
 void menu() {
     printf("\n==== Programming Quotes ====\n");
@@ -13,6 +14,9 @@ void menu() {
 }
 
 int main() {
+
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
     srand(time(NULL));
     int choice;
     
